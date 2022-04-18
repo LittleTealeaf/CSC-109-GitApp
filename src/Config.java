@@ -4,6 +4,7 @@ import github.tools.responseObjects.*;
 
 public class Config {
     String apiToken;
+    String githubUsername;
     String repoPath;
     String repoName;
     String description;
