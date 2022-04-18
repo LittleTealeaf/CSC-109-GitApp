@@ -1,3 +1,7 @@
+import git.tools.client.GitSubprocessClient;
+import github.tools.client.GitHubApiClient;
+import github.tools.responseObjects.*;
+
 public class Config {
     String apiToken;
     String repoPath;
@@ -10,6 +14,7 @@ public class Config {
     }
 
     public void process() {
-        // TODO: implement
+        GitSubprocessClient gitClient = new GitSubprocessClient(repoPath);
+
     }
 }
