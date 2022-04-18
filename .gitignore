@@ -27,3 +27,4 @@ github_token
 .idea/
 out/
 .vscode/
+test/
