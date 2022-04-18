@@ -1,10 +1,10 @@
-import java.io.File;
 import java.io.FileWriter;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 
 import git.tools.client.GitSubprocessClient;
 import github.tools.client.GitHubApiClient;
+import github.tools.client.RequestParams;
 import github.tools.responseObjects.*;
 
 public class Config {
@@ -22,14 +22,31 @@ public class Config {
     public void process() {
         GitSubprocessClient gitClient = new GitSubprocessClient(repoPath);
 
+        //Creates the README
         writeFile("README.md",new String[] {
             "# " + repoName
         });
+
+        //Creates the .gitignore
         writeFile(".gitignore",new String[] {
             "out/",".vscode",".idea","*.class","*.log","*.jar"
         });
 
         gitClient.gitInit();
+        gitClient.gitAddAll();
+        gitClient.gitCommit("initial commit");
+
+        //Creates the repository
+        GitHubApiClient apiClient = new GitHubApiClient(githubUsername, apiToken);
+        RequestParams createRepoParams = new RequestParams();
+        createRepoParams.addParam("name", repoName);
+        createRepoParams.addParam("private", isPrivate);
+        createRepoParams.addParam("description", description);
+        CreateRepoResponse response = apiClient.createRepo(createRepoParams);
+
+        //Adds to the remote
+        gitClient.gitRemoteAdd("origin", response.getUrl());
+        gitClient.gitPush(gitClient.getCurrentBranchName());
     }
 
     /**
