@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.JFrame;
 
 public class App extends JFrame {
+    private Config config;
 
     public App() {
         super();
@@ -17,5 +18,9 @@ public class App extends JFrame {
 
     public static void main(String[] args) {
         new App();
+    }
+
+    public void submit() {
+        config.process();
     }
 }
