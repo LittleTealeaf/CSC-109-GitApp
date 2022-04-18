@@ -32,6 +32,11 @@ public class Config {
         gitClient.gitInit();
     }
 
+    /**
+     * Writes a file into the directory
+     * @param fileName The file name to write into the directory
+     * @param lines Array of string lines to write into the file
+     */
     public void writeFile(String fileName, String[] lines) {
         Path filePath = Paths.get(repoPath,fileName);
         try {

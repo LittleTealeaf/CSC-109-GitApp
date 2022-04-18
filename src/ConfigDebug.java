@@ -9,6 +9,7 @@ public class ConfigDebug {
         try {
             config.apiToken = Files.readAllLines(new File("github_token").toPath()).get(0);
             config.repoPath = "test";
+            config.repoName = "MY REPO NAME";
 
             config.process();
 
