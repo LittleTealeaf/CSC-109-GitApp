@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Git App Documentation</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <center class="center_header">
+      <div class="header">
+        <h1>Git App</h1>
+        <div>
+          <p class="header_authors">By <a href="https://github.com/LittleTealeaf">Thomas Kwashnak</a> and <a href="https://github.com/hle0">Henry Leonard</a></p>
+        </div>
+        <div>
+          <p class="header_link">
+            <a href="https://github.com/LittleTealeaf/CSC-109-GitApp">View on Github</a>
+          </p>
+        </div>
+      </div>
+    </center>
+    <div class="content">
+      <article>
+        <h1>About the Project</h1>
+        <p>
+          This java program is a wrapper for creating and pushing a project from your local machine to Github. This project was created as a project for the course CSC-109 (Intro to Git) at Quinnipiac
+          Univeristy.
+        </p>
+        <p></p>
+      </article>
+
+      <article>
+        <h1>Installing the Project</h1>
+        <h3>Required Software</h3>
+        <p>This project requires that you have git and Java 17 installed. While it is possible that the project may run on older versions of Java, we developed this program using Java 17.</p>
+        <h3>Setting Up the Project</h3>
+        <p>First, you will need to download the project from git. To do this, ensure that git is installed on your computer, and execute the following code:</p>
+        <pre>git clone https://github.com/LittleTealeaf/CSC-109-GitApp</pre>
+        <p>
+          Once you've cloned the repository, open it up with your favorite Java IDE. For this project, we used <a href="https://code.visualstudio.com/">Visual Studio Code</a>, but IDEs such as
+          <a href="https://www.jetbrains.com/idea/">IntelliJ</a> or <a href="https://www.eclipse.org/">Eclipse</a> work perfectly fine.
+        </p>
+        <p>
+          In this project, we used two external libraries that were provided to use. These libraries wrapped the Github API and git functions to expose an easy API that we could use. You can view the
+          repositories for the libraries used as follows:
+        </p>
+        <ul>
+          <li><a href="https://github.com/CSC109/GitHubApiClient">GithubAPIClient</a> by <a href="https://github.com/a-r-t">Alex Thimineur</a></li>
+          <li><a href="https://github.com/CSC109/GitSubprocessClient">GitSubprocessClient</a> by <a href="https://github.com/a-r-t">Alex Thimineur</a></li>
+        </ul>
+        <p>
+          For ease of use, these libraries have been pre-downloaded and included in our repository, located in the
+          <code><a href="https://github.com/LittleTealeaf/CSC-109-GitApp/tree/main/libs">libs/</a></code> directory.
+        </p>
+        <p>
+          However, you will still need to tell your IDE that you wish to use those packages in your program. Here are links to articles instructing you on how to do so with the IDEs mentioned above:
+        </p>
+        <ul>
+          <li><a href="https://code.visualstudio.com/docs/java/java-project#_manage-dependencies-for-unmanaged-folder">Visual Studio Code: Manage dependencies for unamanged folders</a></li>
+          <li><a href="https://www.jetbrains.com/help/idea/library.html#define-a-project-library">IntelliJ: Defining a Project Libraries</a></li>
+          <li><a href="https://www.ics.uci.edu/~pattis/common/modules46/courselibmac.html">Eclipse: Adding User Libraries to Eclipse</a></li>
+        </ul>
+        <p>
+            Once you've properly set up both libraries (found in <code><a href="https://github.com/LittleTealeaf/CSC-109-GitApp/tree/main/libs">libs/</a></code>), you are ready to start the program! You will find the main method in <code><a href="https://github.com/LittleTealeaf/CSC-109-GitApp/tree/main/src">src/App.java</a></code>. Using your IDE, execute the <code>static void main(String[] args) {...}</code> method to launch the application
+        </p>
+        <h1>Using the Application</h1>
+        <p>
+            Once you've launched the application, you will be greeted with the following ui. Given this is a prototype, of course the UI isn't all that great.
+        </p>
+        <center>
+            <img src="assets/image-1.png">
+        </center>
+        <p><b>Github API Token:</b> you will need to provide the application a Github API Token that has permissions to access your account. You can read instructions on creating and getting a Github API Token from <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Github Documentation</a></p>
+        <p><b>Github Username:</b> Please enter your Github Username here, so we can make sure that the repositories go in the right space!</p>
+        <p><b>Repository Path:</b> Please enter the file location of project workspace that you would like to convert to a Github Repository. This must be the full absolute path. </p>
+        <p><b>Repository Name:</b> What do you want your repository to be called on Github? This is where you can name it! The name should adhere to the following restrictions
+        <ul>
+            <li>
+                All characters must either be ASCII Alphanumeric, a dash (<code>-</code>), an underscore (<code>_</code>), or a period (<code>.</code>)
+            </li>
+            <li>
+                Cannot contain only periods (<code>.</code>)
+            </li>
+        </ul></p>
+        <p><b>Repository Description:</b> What is this repository about? Whatever you put in here will be auto-filled into the <code>README.md</code> file, as well as the repository description on Github</p>
+        <p>Once you've completed all the previous steps, you're ready to hit <b>Submit</b>, and the application will turn your previously dull project into a git repository hosted on GitHub!</p>
+      </article>
+      <div class="footer">
+          Not affiliated with Microsoft, Github, or any Corporation. This is not an official product, and should not be used in actual use cases.
+      </div>
+    </div>
+  </body>
+</html>
