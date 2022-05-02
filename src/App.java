@@ -1,10 +1,14 @@
-import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class App extends JFrame {
-    private Config config;
+    protected Config config = new Config();
+    private ConfigPanel configPanel;
+    private JButton submitButton;
 
     public App() {
         super();
@@ -12,6 +16,15 @@ public class App extends JFrame {
         setLayout(new BorderLayout());
         setSize(1000,1000);
 
+        this.add(this.configPanel = new ConfigPanel(this), BorderLayout.NORTH);
+        this.add(this.submitButton = new JButton("Submit"), BorderLayout.SOUTH);
+
+        this.submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                submit();
+            }
+        });
 
         setVisible(true);
     }
@@ -21,6 +34,7 @@ public class App extends JFrame {
     }
 
     public void submit() {
+        this.configPanel.updateConfig();
         config.process();
     }
 }
